@@ -11,6 +11,7 @@
 		2B4AC4C1C48CDCB74B021831 /* Pods_poopyAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7338A77AF34611AE59869BB /* Pods_poopyAppTests.framework */; };
 		2CB56908A66B618210598F49 /* Pods_poopyAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BE3D485842BC6C6F58C0C86 /* Pods_poopyAppUITests.framework */; };
 		633418A11E3622C00078528D /* InviteFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 633418A01E3622C00078528D /* InviteFriendsViewController.swift */; };
+		6370A9331E68F2DD0006C38F /* HomeScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6370A9321E68F2DD0006C38F /* HomeScreenViewController.swift */; };
 		63C634761E342AA80030D09F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 63C634751E342AA80030D09F /* GoogleService-Info.plist */; };
 		63F82B251E323687003B7E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F82B241E323687003B7E6D /* AppDelegate.swift */; };
 		63F82B271E323687003B7E6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F82B261E323687003B7E6D /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		44D1ED20B295F161955C49A4 /* Pods-poopyAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-poopyAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-poopyAppTests/Pods-poopyAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		5BE3D485842BC6C6F58C0C86 /* Pods_poopyAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_poopyAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		633418A01E3622C00078528D /* InviteFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InviteFriendsViewController.swift; sourceTree = "<group>"; };
+		6370A9321E68F2DD0006C38F /* HomeScreenViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScreenViewController.swift; sourceTree = "<group>"; };
 		63C634751E342AA80030D09F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		63F82B211E323687003B7E6D /* poopyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = poopyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F82B241E323687003B7E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				63F82B301E323687003B7E6D /* Info.plist */,
 				63C634751E342AA80030D09F /* GoogleService-Info.plist */,
 				633418A01E3622C00078528D /* InviteFriendsViewController.swift */,
+				6370A9321E68F2DD0006C38F /* HomeScreenViewController.swift */,
 			);
 			path = poopyApp;
 			sourceTree = "<group>";
@@ -464,6 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63F82B271E323687003B7E6D /* ViewController.swift in Sources */,
+				6370A9331E68F2DD0006C38F /* HomeScreenViewController.swift in Sources */,
 				633418A11E3622C00078528D /* InviteFriendsViewController.swift in Sources */,
 				63F82B251E323687003B7E6D /* AppDelegate.swift in Sources */,
 			);
