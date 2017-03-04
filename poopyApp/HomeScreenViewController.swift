@@ -8,13 +8,20 @@
 
 import Foundation
 import UIKit
-import FBSDKLoginKit
+import Firebase
 
 class HomeScreenViewController: UITableViewController {
+    var user: FIRUser!
     var myFriends : NSDictionary?
+    var ref: FIRDatabaseReference!
+    var gamesList = [String]()
+    private var databaseHandle: FIRDatabaseHandle!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        user = FIRAuth.auth()?.currentUser
+        ref = FIRDatabase.database().reference()
+        observeDatabase()
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
         
@@ -36,32 +43,20 @@ class HomeScreenViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 4
+        return gamesList.count
     }
     
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "game", for: indexPath)
+        let game = gamesList[indexPath.row]
+        cell.textLabel?.text = game
         return cell
     }
     
     //get friends, switch to list of friends
     @IBAction func friendsList(_ sender: UIButton) {
-        let params = ["fields": "friends"]
-        //get FB friends info, store result
-        let graphRequest = FBSDKGraphRequest(graphPath: "/me", parameters: params)
-        graphRequest?.start(completionHandler: { [weak self] connection, result, error in
-            if error != nil {
-                print(error ?? "")
-                return
-            }
-            else{
-                let info = result as! NSDictionary
-                self?.myFriends = info
-                self?.performSegue(withIdentifier: "friendsList", sender: self)
-            }
-            }
-        )
+        self.performSegue(withIdentifier: "friendsList", sender: self)
     }
     
     //prepare(for...) segues give me control of which date i want to send to which view controllers
@@ -74,6 +69,23 @@ class HomeScreenViewController: UITableViewController {
         
     }
     
+    func getQuery() -> FIRDatabaseQuery {
+        return self.ref
+    }
+    
+    func observeDatabase() {
+        databaseHandle = ref.child("Users/\(self.user.uid)/Games").observe(.value, with:{ (snapshot) in
+            var listOfGames = [String]()
+            for gameSnapShot in snapshot.children{
+                let game = (snapshot: gameSnapShot as! FIRDataSnapshot)
+                listOfGames.append(game.value as! String)
+            }
+            self.gamesList = listOfGames
+            self.tableView.reloadData()
+        }
+            )
+        
+    }
     /*
      // Override to support conditional editing of the table view.
      override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {

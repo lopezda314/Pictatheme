@@ -13,6 +13,7 @@ pod ‘FBSDKLoginKit’
 
 pod ‘Firebase/Auth’
 pod ‘Firebase/Database’
+pod 'FirebaseUI', '~> 3.0'
 
   target 'poopyAppTests' do
     inherit! :search_paths

@@ -60,7 +60,7 @@ class ViewController: UIViewController, FBSDKLoginButtonDelegate {
     //prepare(for...) segues give me control of which date i want to send to which view controllers
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "loggedIn"{
-            if let destination = segue.destination as? InviteFriendsViewController {
+            if let destination = segue.destination as? HomeScreenViewController {
                 destination.myFriends = self.myFriends
             }
     }
